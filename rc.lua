@@ -107,14 +107,14 @@ local editor       = os.getenv("EDITOR") or "nvim"
 local browser      = "firefox"
 
 awful.util.terminal = terminal
-awful.util.tagnames = { "1", "2", "3", "4", "5" }
+awful.util.tagnames = { "1", "2", "3", "4", "5", "6", "7", "8"}
 awful.layout.layouts = {
---    awful.layout.suit.floating,
+   -- awful.layout.suit.floating,
     awful.layout.suit.tile,
---    awful.layout.suit.tile.left,
- --   awful.layout.suit.tile.bottom,
-   -- awful.layout.suit.tile.top,
-    --awful.layout.suit.fair,
+    --awful.layout.suit.tile.left,
+    --awful.layout.suit.tile.bottom,
+    --awful.layout.suit.tile.top,
+    awful.layout.suit.fair,
     --awful.layout.suit.fair.horizontal,
     --awful.layout.suit.spiral,
     --awful.layout.suit.spiral.dwindle,
@@ -127,10 +127,10 @@ awful.layout.layouts = {
     --awful.layout.suit.corner.se,
     --lain.layout.cascade,
     --lain.layout.cascade.tile,
-    --lain.layout.centerwork,
+    lain.layout.centerwork,
     --lain.layout.centerwork.horizontal,
     --lain.layout.termfair,
-    --lain.layout.termfair.center
+    lain.layout.termfair.center
 }
 
 lain.layout.termfair.nmaster           = 3
@@ -272,6 +272,11 @@ globalkeys = mytable.join(
     -- https://github.com/lcpz/dots/blob/master/bin/screenshot
     awful.key({ altkey }, "p", function() os.execute("screenshot") end,
               {description = "take a screenshot", group = "hotkeys"}),
+
+    -- use Rofi
+    awful.key({ altkey }, "r", function () awful.spawn("rofi -show drun") end,
+              {description = "open rofi launcher", group = "launcher"}),
+
 
     -- X screen locker
     awful.key({ altkey, "Control" }, "l", function () os.execute(scrlocker) end,
