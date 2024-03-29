@@ -21,15 +21,15 @@ theme.font                                      = "Unifont"
 theme.fg_normal                                 = "#FEFFFF"
 theme.fg_focus                                  = "#32D6FF"
 theme.fg_urgent                                 = "#C83F11"
-theme.bg_normal                                 = "#35346000"
+theme.bg_normal                                 = "#35346000" --#35346000
 theme.bg_focus                                  = "#1E2320"
 theme.bg_urgent                                 = "#3F3F3F"
 theme.taglist_fg_focus                          = "#00CCFF"
-theme.tasklist_bg_focus                         = "#35346000"
+theme.tasklist_bg_focus                         = "#35346000" --#35346000
 theme.tasklist_fg_focus                         = "#00CCFF"
-theme.border_width                              = dpi(2)
-theme.border_normal                             = "#3F3F3F"
-theme.border_focus                              = "#6F6F6F"
+theme.border_width                              = dpi(0.9)
+theme.border_normal                             = "#3f3f3f" --3F3F3F
+theme.border_focus                              = "#8841a3" --6F6F6F
 theme.border_marked                             = "#CC9393"
 theme.titlebar_bg_focus                         = "#3F3F3F"
 theme.titlebar_bg_normal                        = "#3F3F3F"
@@ -339,8 +339,24 @@ function theme.at_screen_connect(s)
     -- Create a tasklist widget
     s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, awful.util.tasklist_buttons)
 
+
+    --roundness function
+     function custom_shape(cr, width, height)
+
+    gears.shape.rounded_rect(cr, width, height, 2)
+
+    end
+
+
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s, height = dpi(25), bg = theme.bg_normal, fg = theme.fg_normal, widget = wibox.container.margin, bottom = 4 })
+    s.mywibox = awful.wibar({
+    position = "top",
+    border_color = "#5f117d",
+    screen = s,
+    height = dpi(23),
+    border_width = "2"
+    --shape = gears.shape.rounded_rect(cr, 1200, 50, 10),
+    --[[bg = theme.bg_normal, fg = theme.fg_normal--]]})
 
 
 
