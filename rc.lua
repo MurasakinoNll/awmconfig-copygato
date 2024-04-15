@@ -841,4 +841,5 @@ tag.connect_signal("property::selected", backham)
     end
 end
 --]]
-awful.spawn.with_shell("sudo prime-run picom -bcCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 --config /dev/null &")
+awful.spawn.with_shell("prime-run picom -bcCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 --config /dev/null &")
+awful.spawn.with_shell("pa-applet")
